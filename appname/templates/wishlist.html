@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Wishlist</title>
+  <link rel="stylesheet" href="{% static 'styles/wishlist.css' %}" />
+</head>
+<body>
+  <header>
+    <h1>Your Wishlist</h1>
+    <a href="{% url 'allproducts' %}" class="back-link">⬅ Back to Products</a>
+  </header>
+
+  <section class="cart-section" id="wishlist-items">
+    <!-- Wishlist items will be inserted here -->
+  </section>
+
+  <script>
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    const container = document.getElementById('wishlist-items');
+
+    function updateWishlistUI() {
+      container.innerHTML = '';
+
+      if (wishlist.length === 0) {
+        container.innerHTML = "<p>Your wishlist is empty.</p>";
+        return;
+      }
+
+      wishlist.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = "wishlist-item";
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="wishlist-info">
+            <h3>${item.name}</h3>
+            <p>Price: ₹${item.price.toLocaleString('en-IN')}</p>
+            <button class="heartbreak-btn" onclick="removeItem(${index})" title="Remove from Wishlist">💔</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function removeItem(index) {
+      if (confirm("Remove this item from your wishlist?")) {
+        wishlist.splice(index, 1);
+        updateWishlistUI();
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      }
+    }
+
+    updateWishlistUI();
+  </script>
+</body>
+</html>

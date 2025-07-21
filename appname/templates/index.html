@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TechNova | Home</title>
+  <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/layout.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/components.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/homepage.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/theme.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/logout.css' %}" />
+</head>
+<body>
+  <header>
+    <h1>TechNova</h1>
+
+    <input type="checkbox" id="menu-toggle" hidden>
+    <label for="menu-toggle" class="menu-icon">☰ Menu</label>
+
+    <!-- 🔴 Logout Button -->
+    <button onclick="confirmLogout()" class="logout-btn">Logout</button>
+
+    <div class="sidebar">
+      <ul class="sidebar-menu">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'smartphone' %}">Smartphones</a></li>
+        <li><a href="{% url 'laptop' %}">Laptops</a></li>
+        <li><a href="{% url 'smartwatch' %}">Smartwatches</a></li>
+        <li><a href="{% url 'accessories' %}">Accessories</a></li>
+        <li><a href="{% url 'audio' %}">Audio</a></li>
+        <li><a href="{% url 'gaming' %}">Gaming</a></li>
+        <li><a href="{% url 'checkout' %}">Checkout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="auto-slider">
+    <div class="slides">
+      <div class="slide-s1">
+        <div class="text">
+          <h2>iPhone 16 Pro Max</h2>
+          <p>Experience the Future</p>
+          <a href="{% url 'products' %}" class="btn">Shop Now</a>
+        </div>
+      </div>
+
+      <div class="slide-s2">
+        <div class="text">
+          <h2>Apple Watch X</h2>
+          <p>Redefine Your Health</p>
+          <a href="{% url 'smartwatch' %}" class="btn">Discover</a>
+        </div>
+      </div>
+
+      <div class="slide-s3">
+        <div class="text">
+          <h2>AirPods Max</h2>
+          <p>Immersive Sound</p>
+          <a href="{% url 'audio' %}" class="btn">Browse Audio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h3>Featured Categories</h3>
+    <div class="grid">
+      <a href="{% url 'smartphone' %}" class="card btn">Smartphones</a>
+      <a href="{% url 'laptop' %}" class="card btn">Laptop</a>
+      <a href="{% url 'smartwatch' %}" class="card btn">Smartwatches</a>
+      <a href="{% url 'accessories' %}" class="card btn">Accessories</a>
+      <a href="{% url 'audio' %}" class="card btn">Audio</a>
+      <a href="{% url 'gaming' %}" class="card btn">Gaming</a>
+    </div>
+  </section>
+
+  <section class="links">
+    <h3>Quick Links</h3>
+    <div class="button-cloud">
+      <a href="{% url 'products' %}" class="btn">Special Discount!!!</a>
+      <a href="{% url 'allproducts' %}" class="btn">Buy Products</a>
+      <a href="{% url 'about' %}" class="btn">About Us</a>
+      <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+      <a href="{% url 'carts' %}" class="btn">Your Cart</a>
+      <a href="{% url 'checkout' %}" class="btn">Checkout</a>
+      <a href="{% url 'compare' %}" class="btn">Compare Products</a>
+      <a href="{% url 'warranty' %}" class="btn">Warranty Info</a>
+      <a href="{% url 'store_locator' %}" class="btn">Store Locator</a>
+      <a href="{% url 'theme_toggle' %}" class="btn">Theme Toggle</a>
+      
+    </div>
+  </section>
+
+  <footer><p>© 2025 TechNova</p></footer>
+
+  <script>
+    function confirmLogout() {
+      const confirmAction = confirm("Are you sure you want to log out?");
+      if (confirmAction) {
+        window.location.href = "{% url 'login' %}";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* checkout.css */
+
+/* Base styles */
+body {
+    background-color: #000;
+    color: #00FFFF; /* Aqua text */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Page heading */
+h1 {
+    color: #00FFFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background-color: #111;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 0 12px #00FFFF;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #00FFFF;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #00FFFF;
+    border-radius: 6px;
+    background-color: #000;
+    color: #00FFFF;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Placeholder text */
+input::placeholder {
+    color: #7FFFD4;
+    opacity: 0.6;
+}
+
+/* Input focus effect */
+input:focus {
+    outline: none;
+    border-color: #00FFFF;
+    box-shadow: 0 0 8px #00FFFF;
+}
+
+/* Section headings */
+h3 {
+    color: #00FFFF;
+    border-bottom: 2px solid #00FFFF;
+    padding-bottom: 6px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Submit button */
+button[type="submit"] {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    background-color: #00FFFF;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+    background-color: #2FE7E7;
+    transform: scale(1.02);
+}
+
+/* Optional: Add subtle border to form fields */
+input {
+    transition: border 0.3s ease;
+}

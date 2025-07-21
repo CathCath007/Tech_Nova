@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TechNova | Smartphones</title>
+  <link rel="stylesheet" href="{% static 'styles/category.css' %}">
+
+</head>
+<body class="smartphones">
+  <header><h1>TechNova</h1></header>
+
+  <section class="hero">
+    <h2>Smartphones </h2>
+    <p>Top Picks of 2025</p>
+  </section>
+
+  <section class="product-grid">
+    <div class="product-card">
+      <img src="{% static 'assets/iphone16pro.jpg' %}" alt="iPhone 16 Pro Max" />
+      <h3>iPhone 16 Pro Max</h3>
+      <p>Experience the Future</p>
+      <a href="product.html" class="btn">View Product Details</a>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'assets/samsung-galaxy-s25.jpg' %}" alt="Galaxy S25 Ultra" />
+      <h3>Galaxy S25 Ultra</h3>
+      <p>Beyond Boundaries</p>
+      <a href="{% url 'product1' %}" class="btn">View Product Details</a>
+    </div>
+    
+    
+    <!-- Add more cards -->
+  </section>
+
+  <footer><p>© 2025 TechNova</p></footer>
+</body>
+</html>

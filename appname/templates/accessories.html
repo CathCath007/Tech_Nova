@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- accessories.html -->
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagSafe Case</title>
+    <link rel="stylesheet" href="{% static 'styles/category.css' %}">
+</head>
+<body class="accessories">
+    <section class="product-list">
+  <div class="product-card">
+    <img src="{% static 'assets/magsafe-case.jpg' %}" alt="MagSafe Case" />
+    <h3>MagSafe Case</h3>
+    <p>Snap. Protect. Go.</p>
+    <a href="{% url 'product4' %}" class="btn">View Product Details</a>
+  </div>
+</section>
+
+</body>
+</html>

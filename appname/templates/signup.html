@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Tech Nova</title>
+  <link rel="stylesheet" href="{% static 'styles/signUp.css' %}" />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <h2>Sign Up</h2>
+    </div>
+
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      <p class="auth-message">Create a new account to get started.</p>
+
+      {% if form.errors %}
+      <ul style="color: red;">
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <li>{{ error }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+
+      {{ form.username.label_tag }} {{ form.username }}
+      {{ form.email.label_tag }} {{ form.email }}
+      {{ form.password.label_tag }} {{ form.password }}
+      {{ form.confirm_password.label_tag }} {{ form.confirm_password }}
+
+      <button type="submit" class="btn">Sign Up</button>
+    </form>
+
+    <div class="auth-footer" style="text-align:center; margin-top: 1rem;">
+      <a href="{% url 'login' %}" class="btn btn-link">Already have an account? Log In</a>
+    </div>
+  </div>
+</body>
+</html>

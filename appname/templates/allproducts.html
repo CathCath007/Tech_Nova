@@ -1,0 +1,98 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Products</title>
+  <link rel="stylesheet" href="{% static 'styles/allproducts.css' %}" />
+</head>
+<body>
+  <header>
+    <h1>TechNova Store</h1>
+    <div class="header-actions">
+    <a href="{% url 'carts' %}" class="cart-link">🛒 View Cart</a>
+    <a href="{% url 'view_wishlist' %}" class="wishlist-link">❤️ View Wishlist</a>
+  </div>
+    
+  </header>
+
+
+  <section class="product-grid">
+    {% for product in products %}
+    <div class="product-card"
+         data-id="{{ product.id }}"
+         data-name="{{ product.name }}"
+         data-price="{{ product.price }}"
+         data-img="{% static product.image %}">
+      <img src="{% static product.image %}" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>₹{{ product.price|floatformat:0|intcomma }}</p>
+      <div class="qty-controls">
+        <button class="secondary" onclick="changeQty(this, -1)">−</button>
+        <span class="qty">1</span>
+        <button class="secondary" onclick="changeQty(this, 1)">+</button>
+      </div>
+      <button class="primary" onclick="addToCart(this)">Add to Cart</button>
+      <button class="wishlist-btn" onclick="addToWishlist(this)">❤️ Add to Wishlist</button>
+    </div>
+    {% endfor %}
+  </section>
+
+  <script>
+    function changeQty(button, delta) {
+      const card = button.closest('.product-card');
+      const qtySpan = card.querySelector('.qty');
+      let qty = parseInt(qtySpan.textContent);
+      qty += delta;
+      if (qty < 1) qty = 1;
+      qtySpan.textContent = qty;
+    }
+
+    function addToCart(button) {
+      const card = button.closest('.product-card');
+      const id = card.dataset.id;
+      const name = card.dataset.name;
+      const price = parseInt(card.dataset.price);
+      const img = card.dataset.img;
+      const qty = parseInt(card.querySelector('.qty').textContent);
+      if (qty <= 0) {
+        alert("Quantity must be at least 1 to add to cart.");
+        return;
+      }
+
+      const product = { id, name, price, img, qty };
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existing = cart.find(p => p.id === id);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${qty} × ${name} added to cart.`);
+    }
+  </script>
+  <script>
+function addToWishlist(button) {
+  const card = button.closest('.product-card');
+  const id = card.dataset.id;
+  const name = card.dataset.name;
+  const price = parseInt(card.dataset.price);
+  const img = card.dataset.img;
+  const qty = parseInt(card.querySelector('.qty').textContent);
+
+  const product = { id, name, price, img, qty };
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const existing = wishlist.find(p => p.id === id);
+  if (existing) {
+    alert(`${name} is already in your wishlist.`);
+    return;
+  }
+  wishlist.push(product);
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  alert(`${name} added to wishlist.`);
+}
+</script>
+</body>
+</html>

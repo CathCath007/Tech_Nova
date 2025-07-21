@@ -1,0 +1,28 @@
+/* css/about.css */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0c0c0c;
+  color: #f0f0f0;
+}
+
+.about {
+  max-width: 700px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px #00ffe1;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffe1;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}

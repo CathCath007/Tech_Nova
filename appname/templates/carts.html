@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="{% static 'styles/allproducts.css' %}" />
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <a href="{% url 'allproducts' %}" class="cart-link">⬅ Back to Products</a>
+  </header>
+
+  <section class="cart-section" id="cart-items">
+    <!-- Cart items will be inserted here -->
+  </section>
+
+  <!-- Proceed to Checkout Button -->
+  <div class="checkout-container" style="display: none;">
+    <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+  </div>
+
+  <footer class="total-bar">
+    <h2>Total: ₹<span id="total-price">0</span></h2>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const container = document.getElementById('cart-items');
+    const totalDisplay = document.getElementById('total-price');
+
+    // Helper function to format prices
+    function formatPrice(price) {
+      return price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
+    }
+
+    function updateCartUI() {
+      container.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        totalDisplay.textContent = "0";
+        document.querySelector('.checkout-container').style.display = 'none';
+        return;
+      } else {
+        document.querySelector('.checkout-container').style.display = 'block';
+      }
+
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+
+        const div = document.createElement('div');
+        div.className = "cart-item";
+        div.innerHTML = `
+          <img src="{{ STATIC_URL }}${item.img}" alt="${item.name}">
+          <div>
+            <h3>${item.name}</h3>
+            <p>Price: ₹${formatPrice(item.price).replace('₹', '')}</p>
+            <div class="qty-controls">
+              <button onclick="changeQty(${index}, -1)">−</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty(${index}, 1)">+</button>
+            </div>
+            <strong>Subtotal: ₹${formatPrice(subtotal).replace('₹', '')}</strong><br>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove Product</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      totalDisplay.textContent = total;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty < 1) cart[index].qty = 1;
+      updateCartUI();
+    }
+
+    function removeItem(index) {
+      if (confirm("Are you sure you want to remove this product from your cart?")) {
+        cart.splice(index, 1);
+        updateCartUI();
+      }
+    }
+
+    function proceedToCheckout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Proceeding to checkout...");
+      window.location.href = "{% url 'checkout' %}";
+    }
+
+    updateCartUI();
+  </script>
+</body>
+</html>

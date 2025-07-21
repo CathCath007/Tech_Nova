@@ -1,0 +1,75 @@
+/* wishlist.css */
+
+body {
+  background-color: #000;
+  color: #00FFFF;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #111;
+  border-bottom: 2px solid #00FFFF;
+}
+
+.back-link {
+  color: #00FFFF;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.cart-section {
+  padding: 20px;
+}
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #111;
+  border: 1px solid #00FFFF;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px #00FFFF;
+}
+
+.wishlist-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #00FFFF;
+}
+
+.wishlist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wishlist-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.wishlist-info p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.heartbreak-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #ff4d4d; /* Red heartbreak */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.heartbreak-btn:hover {
+  transform: scale(1.2);
+}

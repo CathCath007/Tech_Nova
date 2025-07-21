@@ -1,0 +1,23 @@
+<!-- product.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smartphone X | TechNova</title>
+  <link rel="stylesheet" href="{% static 'styles/product.css' %}" />
+</head>
+<body>
+  <section class="product-detail">
+    <div class="image-gallery">
+      <img src="{% static 'assets/front_View1.jpg' %}" alt="Smartphone X Front View">
+    </div>
+    <div class="info">
+      <h2>Smartphone X Ultra</h2>
+      <p><s>₹89,999</s> <strong>₹79,999</strong></p>
+      <p>Battery: 5000mAh | Display: 6.7" OLED | RAM: 12GB | Camera: 108MP</p>
+      <!-- <button class="btn">Add to Cart</button> -->
+    </div>
+  </section>
+</body>
+</html>

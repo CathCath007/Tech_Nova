@@ -1,0 +1,41 @@
+<!-- templates/cart.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart | TechNova</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'styles/cart.css' %}">
+</head>
+<body>
+  <section class="cart">
+    <h2>Your Shopping Cart</h2>
+    {% if cart_items %}
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+          <td data-label="Product">{{ item.product.name }}</td>
+          <td data-label="Quantity">{{ item.quantity }}</td>
+          <td data-label="Price">₹{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h3>Total: ₹{{ total }}</h3>
+    <button class="btn">Proceed to Checkout</button>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+  </section>
+
+</body>
+</html>

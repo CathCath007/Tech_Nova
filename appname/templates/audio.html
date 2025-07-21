@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- audio.html -->
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirPods Max</title>
+    <link rel="stylesheet" href="{% static 'styles/category.css' %}">
+<body class="audio">
+    <section class="product-list">
+  <div class="product-card">
+    <img src="{% static 'assets/airpods-max.jpg' %}" alt="AirPods Max" />
+    <h3>AirPods Max</h3>
+    <p>Immersive sound redefined</p>
+    <a href="{% url 'product5' %}" class="btn">View Product Details</a>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,425 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0c0c0c;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+
+header, footer {
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: #00ffe1;
+}
+
+.btn {
+  background: #00ffe1;
+  color: #000;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card, .product-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00ffe1;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.card:hover, .product-card:hover {
+  transform: scale(1.05);
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+section {
+  padding: 2rem;
+}
+
+.button-cloud {
+  position: relative;
+  min-height: 500px;
+  background-color: #000000; /* Deep black base */
+  padding: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 255, 225, 0.2);
+}
+
+/* Button style */
+/* Glowing cyan buttons */
+.button-cloud .btn {
+  position: absolute;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: #00ffe1;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 255, 225, 0.6);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.button-cloud .btn:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 25px rgba(0, 255, 225, 0.9);
+}
+
+
+/* Refined positions: grouped but playful */
+.button-cloud .btn:nth-child(1) { top: 40px;  left: 10%; }
+.button-cloud .btn:nth-child(2) { top: 90px;  left: 30%; }
+.button-cloud .btn:nth-child(3) { top: 140px; left: 50%; }
+.button-cloud .btn:nth-child(4) { top: 190px; left: 70%; }
+.button-cloud .btn:nth-child(5) { top: 240px; left: 20%; }
+.button-cloud .btn:nth-child(6) { top: 290px; left: 40%; }
+.button-cloud .btn:nth-child(7) { top: 340px; left: 60%; }
+.button-cloud .btn:nth-child(8) { top: 390px; left: 80%; }
+.button-cloud .btn:nth-child(9) { top: 440px; left: 30%; }
+.button-cloud .btn:nth-child(10) { top: 490px; left: 55%; }
+
+
+/* Float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card.btn {
+  display: inline-block;
+  padding: 16px 28px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  background-color: #070707;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0, 255, 225, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 32px rgba(0, 255, 225, 0.9);
+}
+
+
+.btn {
+  background-color: #00ffe1;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  display: inline-block;
+  box-shadow: 0 0 15px rgba(0, 255, 225, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Keyframe animation */
+@keyframes slideMove {
+  0%    { transform: translateX(0%); }
+  33.33% { transform: translateX(-100%); }
+  66.66% { transform: translateX(-200%); }
+  100%  { transform: translateX(0%); }
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0c0c0c;
+  color: #f0f0f0;
+  min-height: 100vh;
+}
+
+
+/* ========== Auto Hero Slider ========== */
+/* Auto Slider Section */
+.auto-slider {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Set the height of the container */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c0c0c;
+  color: #fff;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  object-fit: cover;
+  animation: slideMove 30s infinite ease-in-out;
+  
+}
+.slide-s1 {
+  flex: 0 0 100%;
+  text-align: center;
+  
+  padding: 0; /* Remove any padding */
+  color: #fff;
+  min-width: 100%;
+  height: 100%; /* Fill the full height of the container */
+  background-size:cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Ensures the image is centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  /* position: relative; */
+  object-fit: cover;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1616410011236-7a42121dd981?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aXBob25lfGVufDB8fDB8fHww")
+}
+.slide-s2 {
+  flex: 0 0 100%;
+  text-align: center;
+  padding: 0; /* Remove any padding */
+  color: #fff;
+  min-width: 100%;
+  height: 100%; /* Fill the full height of the container */
+  background-size:cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Ensures the image is centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  /* position: relative; */
+  object-fit: cover;
+  background-size: cover;
+  background-image: url("https://photos5.appleinsider.com/archive/gallery/18182-16433-160907-FL-Watch-xl.jpg");
+}
+
+.slide-s3 {
+  flex: 0 0 100%;
+  text-align: center;
+  padding: 0; /* Remove any padding */
+  color: #fff;
+  min-width: 100%;
+  height: 100%; /* Fill the full height of the container */
+  background-size:cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Ensures the image is centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  /* position: relative; */
+  object-fit: cover;
+  background-size: cover;
+  background-image: url("https://images.macrumors.com/t/9L7eqOO-QyAFwl5_TlqhYPaojDY=/800x0/smart/article-new/2020/05/airpods-max-2024-colors.jpg?lossy");
+}
+.slide h2, .slide p {
+  z-index: 2; 
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  
+  
+}
+
+.text{
+  margin-top: 300px;
+}
+
+
+@keyframes slideMove {
+  0% { transform: translateX(0%); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+
+
+/* ========== Buttons ========== */
+.btn {
+  background-color: #00ffe1;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  display: inline-block;
+  box-shadow: 0 0 15px rgba(0, 255, 225, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ========== Category Grid ========== */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffe1;
+}
+
+/* ========== Product Card ========== */
+.product-card {
+  background-color: #111;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+  width: 300px;
+  box-shadow: 0 0 14px rgba(0, 255, 225, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 28px rgba(0, 255, 225, 0.5);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+
+/* Sidebar Toggle Button */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 22px;
+  background: #222;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+/* Sidebar default hidden */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  transition: left 0.3s ease;
+  z-index: 1500;
+  padding-top: 60px;
+}
+
+/* Show sidebar when checkbox is checked */
+#menu-toggle:checked ~ .sidebar {
+  left: 0;
+}
+
+/* Sidebar links */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #444;
+}
+
+.logout-form {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: #00ffe1;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 255, 225, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #00ccba;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #00ffe1;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 255, 225, 0.4);
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+.logout-btn:hover {
+  background-color: #00ccba;
+}
+
